@@ -2,7 +2,7 @@
  教你建立自己的 line-bot 使用 python flask 📝   
  line-bot-tutorial use python flask
 
-* [Youtube Demo 等待新增]()   
+* [Youtube Demo](https://youtu.be/EToFs-ysXKw)   
 
 
 
@@ -201,6 +201,9 @@ https://python-ine-bot.herokuapp.com/callback
 
 ![alt tag](http://i.imgur.com/wb0Qw5W.jpg)
 
+基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
+
+只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
 
 
 ## 執行環境
