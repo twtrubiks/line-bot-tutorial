@@ -25,19 +25,19 @@
 
 我的 QRCODE
 
-![alt tag](http://qr-official.line.me/L/49dz0fHNfh.png)
+![alt tag](http://i.imgur.com/Kkpzt4p.jpg)
 
 或是手機直接點選 [https://line.me/R/ti/p/%40vbi2716y](https://line.me/R/ti/p/%40vbi2716y)
 
-![alt tag](http://i.imgur.com/Peys1Dy.png)
+![alt tag](http://i.imgur.com/oAgR5nr.jpg)
 
 認證記得請選 <b>同意</b>
 
-![alt tag](http://i.imgur.com/p5EypH5.png)
+![alt tag](http://i.imgur.com/9LOlGHh.jpg)
 
 成功加入後，我的 <b>阿肥bot</b> 會傳訊息給你，並且告訴你我提供的服務
 
-![alt tag](http://i.imgur.com/FlYEHSu.jpg)
+![alt tag](http://i.imgur.com/n9Gj09Y.jpg)
 
 之後你就可以依照你想要看的東西輸入指令 (目前是有分大小寫，所以請輸入 <b>小寫</b> )
 
