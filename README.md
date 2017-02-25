@@ -2,22 +2,9 @@
  教你建立自己的 line-bot 使用 python flask 📝   
  line-bot-tutorial use python flask
 
-* [Youtube Demo](https://youtu.be/EToFs-ysXKw)   
+* [Youtube Demo Tutorial V1 ](https://youtu.be/EToFs-ysXKw)   
 
-
-
-## 特色
-* 提供下列指令
-
-```
-  "eyny" : eyny 電影版 Mega 連結的網址。
-  "news" : apple news 即時新聞。
-  "beauty" : ptt 表特版 近期大於 10 推的文章 。
-  "ptthot" : ptt 近期熱門的文章。
-  "movie" :  近期上映的電影 ( 開眼電影網 )。
-  "technews" : 科技新聞。
-  "panx" : 科技新聞 ( 泛科技 ) 。
-```
+* [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)   
 
 ## 執行畫面
 
@@ -34,6 +21,26 @@
 認證記得請選 <b>同意</b>
 
 ![alt tag](http://i.imgur.com/9LOlGHh.jpg)
+
+### v2 2017/2/25 
+
+![alt tag](http://i.imgur.com/M30GJOU.jpg)
+
+![alt tag](http://i.imgur.com/PCcnc5R.jpg)
+
+![alt tag](http://i.imgur.com/3fajqDK.jpg)
+
+![alt tag](http://i.imgur.com/SXwT0bl.jpg)
+
+![alt tag](http://i.imgur.com/mc0R0xL.jpg)
+
+![alt tag](http://i.imgur.com/GJI1BwG.jpg)
+
+![alt tag](http://i.imgur.com/5T32UW3.jpg)
+
+
+
+### V1  commit ba855d6307c50cc478db3d7ac689bf0c96122a0f
 
 成功加入後，我的 <b>阿肥bot</b> 會傳訊息給你，並且告訴你我提供的服務
 
@@ -204,6 +211,20 @@ https://python-ine-bot.herokuapp.com/callback
 基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
 
 只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
+
+## 其他補充
+只要有使用到網址，請記得一定都要用 <b> https </b>
+
+舉例
+
+```
+image_message = ImageSendMessage(
+            original_content_url="https://example.com.img1.jpg",
+            preview_image_url="https://example.com.img1.jpg"
+        )
+``` 
+
+
 
 
 ## 執行環境

@@ -1,5 +1,6 @@
 import requests
 import re
+import random
 from bs4 import BeautifulSoup
 from collections import defaultdict
 from flask import Flask, request, abort
@@ -10,23 +11,75 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+from linebot.models import *
 
 app = Flask(__name__)
 line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
-command = {
-    "eyny": "ok",
-    "news": "ok",
-    "beauty": "ok",
-    "ptthot": "ok",
-    "movie": "ok",
-    "technews": "ok",
-    "panx": "ok"
-}
+picture = ["https://i.imgur.com/qKkE2bj.jpg",
+           "https://i.imgur.com/QjMLPmx.jpg",
+           "https://i.imgur.com/HefBo5o.jpg",
+           "https://i.imgur.com/AjxWcuY.jpg",
+           "https://i.imgur.com/3vDRl4r.jpg",
+           "https://i.imgur.com/3qSGcKT.jpg",
+           "https://i.imgur.com/ZbdV9Nz.jpg",
+           "https://i.imgur.com/oAkIJmH.jpg",
+           "https://i.imgur.com/MtcwDtD.jpg",
+           "https://i.imgur.com/qre60t1.jpg",
+           "https://i.imgur.com/Yrvc7LV.jpg",
+           "https://i.imgur.com/4wJXl4D.jpg",
+           "https://i.imgur.com/71suURR.jpg",
+           "https://i.imgur.com/sNBVjhg.jpg",
+           "https://i.imgur.com/h5HJmGx.jpg",
+           "https://i.imgur.com/O92zfAa.jpg",
+           "https://i.imgur.com/eaQyCc9.jpg",
+           "https://i.imgur.com/CEuYLJ6.jpg",
+           "https://i.imgur.com/yD8RcYu.jpg",
+           "https://i.imgur.com/cOLTxKC.jpg",
+           "https://i.imgur.com/pYQHJXU.jpg",
+           "https://i.imgur.com/JC68vsX.jpg",
+           "https://i.imgur.com/4hEWo2f.jpg",
+           "https://i.imgur.com/FW6wzFO.jpg",
+           "https://i.imgur.com/pgMFTp1.jpg",
+           "https://i.imgur.com/GWoZrQB.jpg",
+           "https://i.imgur.com/ytByPTQ.jpg",
+           "https://i.imgur.com/Qta7jlq.jpg",
+           "https://i.imgur.com/PByM0FF.jpg",
+           "https://i.imgur.com/xCLD2QP.jpg",
+           "https://i.imgur.com/vq7ONzd.jpg",
+           "https://i.imgur.com/OKtXWJS.jpg",
+           "https://i.imgur.com/RonVK6S.jpg",
+           "https://i.imgur.com/cH9oLjI.jpg",
+           "https://i.imgur.com/sn4p43t.jpg",
+           "https://i.imgur.com/LaKmM7c.jpg",
+           "https://i.imgur.com/7YzFhNt.jpg",
+           "https://i.imgur.com/O6j2qDB.jpg",
+           "https://i.imgur.com/N4pkG9S.jpg",
+           "https://i.imgur.com/1SlHQU6.jpg",
+           "https://i.imgur.com/mplQ8IO.jpg",
+           "https://i.imgur.com/tO1R8Xt.jpg",
+           "https://i.imgur.com/nCgWLuY.jpg",
+           "https://i.imgur.com/ZQfoFsa.jpg",
+           "https://i.imgur.com/ApmQia8.jpg",
+           "https://i.imgur.com/CiUyuZb.jpg",
+           "https://i.imgur.com/hfhA6d4.jpg",
+           "https://i.imgur.com/KOljinG.jpg",
+           "https://i.imgur.com/XmRwW0U.jpg",
+           "https://i.imgur.com/Ee8CFje.jpg",
+           "https://i.imgur.com/yNkxNkA.jpg",
+           "https://i.imgur.com/hnkzX6p.jpg",
+           "https://i.imgur.com/rrdr3zZ.jpg",
+           "https://i.imgur.com/hzbdQU9.jpg",
+           "https://i.imgur.com/xdNOHGc.jpg",
+           "https://i.imgur.com/b2B1LPE.jpg",
+           "https://i.imgur.com/BUfqlcN.jpg",
+           "https://i.imgur.com/8yl3W2D.jpg",
+           "https://i.imgur.com/DbxBheB.jpg",
+           "https://i.imgur.com/DDNc9ot.jpg",
+           "https://i.imgur.com/hh2e3LT.jpg",
+           "https://i.imgur.com/2cdURNa.jpg"
+           ]
 
 
 @app.route("/callback", methods=['POST'])
@@ -93,6 +146,7 @@ def appleNews():
 
 
 article_list = []
+article_gossiping = []
 
 
 def getPageNumber(content):
@@ -102,10 +156,7 @@ def getPageNumber(content):
     return pageNumber
 
 
-def crawPage(url, push_rate):
-    rs = requests.session()
-    res = rs.get(url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
+def crawPage(url, push_rate, soup):
     for r_ent in soup.find_all(class_="r-ent"):
         try:
             # 先得到每篇文章的篇url
@@ -135,6 +186,63 @@ def crawPage(url, push_rate):
             print('delete')
 
 
+def crawPage_Gossiping(url, soup):
+    for r_ent in soup.find_all(class_="r-ent"):
+        try:
+            # 先得到每篇文章的篇url
+            link = r_ent.find('a')['href']
+            # if 'M.1430099938.A.3B7' in link:
+            #     continue
+
+            if (link):
+                # 確定得到url再去抓 標題 以及 推文數
+                title = r_ent.find(class_="title").text.strip()
+                URL = 'https://www.ptt.cc' + link
+                article_gossiping.append((URL, title))
+        except:
+            # print u'crawPage function error:',r_ent.find(class_="title").text.strip()
+            # print('本文已被刪除')
+            print('delete')
+
+
+def pttGossiping():
+    rs = requests.session()
+    load = {
+        'from': '/bbs/Gossiping/index.html',
+        'yes': 'yes'
+    }
+    res = rs.post('https://www.ptt.cc/ask/over18', verify=False, data=load)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    ALLpageURL = soup.select('.btn.wide')[1]['href']
+    start_page = int(getPageNumber(ALLpageURL)) + 1
+    index_list = []
+    for page in range(start_page, start_page - 2, -1):
+        page_url = 'https://www.ptt.cc/bbs/Gossiping/index' + str(page) + '.html'
+        index_list.append(page_url)
+
+    # 抓取 文章標題 網址 推文數
+    while index_list:
+        index = index_list.pop(0)
+        res = rs.get(index, verify=False)
+        soup = BeautifulSoup(res.text, 'html.parser')
+        # 如網頁忙線中,則先將網頁加入 index_list 並休息1秒後再連接
+        if (soup.title.text.find('Service Temporarily') > -1):
+            index_list.append(index)
+            # print u'error_URL:',index
+            # time.sleep(1)
+        else:
+            crawPage_Gossiping(index, soup)
+            # print u'OK_URL:', index
+            # time.sleep(0.05)
+    content = ''
+    for index, article in enumerate(article_gossiping, 0):
+        if index == 15:
+            return content
+        data = article[1] + "\n" + article[0] + "\n\n"
+        content += data
+    return content
+
+
 def pttBeauty():
     rs = requests.session()
     res = rs.get('https://www.ptt.cc/bbs/Beauty/index.html', verify=False)
@@ -159,7 +267,7 @@ def pttBeauty():
             # print u'error_URL:',index
             # time.sleep(1)
         else:
-            crawPage(index, push_rate)
+            crawPage(index, push_rate, soup)
             # print u'OK_URL:', index
             # time.sleep(0.05)
     content = ''
@@ -241,35 +349,211 @@ def default_factory():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # cmd = defaultdict(default_factory, command)
-    reply_command = ''' 阿肥我目前可以提供你下列的服務，請對我輸入
-     "eyny" : eyny 電影版 Mega 連結的網址。
-     "news" : apple news 即時新聞。
-     "beauty" : ptt 表特版 近期大於 10 推的文章 。
-     "ptthot" : ptt 近期熱門的文章。
-     "movie" :  近期上映的電影 ( 開眼電影網 )。
-     "technews" : 科技新聞。
-     "panx" : 科技新聞 ( 泛科技 ) 。
-    '''
-    content = reply_command
+    print("event.reply_token:", event.reply_token)
+    print("event.message.text:", event.message.text)
     if event.message.text == "eyny":
         content = eynyMovie()
-    if event.message.text == "news":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "蘋果即時新聞":
         content = appleNews()
-    if event.message.text == "beauty":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "PTT 表特版 近期大於 10 推的文章":
         content = pttBeauty()
-    if event.message.text == "ptthot":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "隨便來張正妹圖片":
+        index_pic = random.randint(0, len(picture) - 1)
+        image_message = ImageSendMessage(
+            original_content_url=picture[index_pic],
+            preview_image_url=picture[index_pic]
+        )
+        line_bot_api.reply_message(
+            event.reply_token, image_message)
+        return 0
+
+    if event.message.text == "近期熱門廢文":
         content = pttHot()
-    if event.message.text == "movie":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "即時廢文":
+        content = pttGossiping()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "近期上映電影":
         content = movie()
-    if event.message.text == "technews":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "科技新報":
         content = technews()
-    if event.message.text == "panx":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "PanX泛科技":
         content = panx()
-    # print("event.reply_token:",event.reply_token)
-    # print("event.message.text:", event.message.text)
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=content))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    if event.message.text == "開始玩":
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='選擇服務',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/xQF5dZT.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='新聞',
+                        text='新聞'
+                    ),
+                    MessageTemplateAction(
+                        label='電影',
+                        text='電影'
+                    ),
+                    MessageTemplateAction(
+                        label='看廢文',
+                        text='看廢文'
+                    ),
+                    MessageTemplateAction(
+                        label='正妹',
+                        text='正妹'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+    if event.message.text == "新聞":
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='新聞類型',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
+                actions=[
+                    MessageTemplateAction(
+                        label='蘋果即時新聞',
+                        text='蘋果即時新聞'
+                    ),
+                    MessageTemplateAction(
+                        label='科技新報',
+                        text='科技新報'
+                    ),
+                    MessageTemplateAction(
+                        label='PanX泛科技',
+                        text='PanX泛科技'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+    if event.message.text == "電影":
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='服務類型',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/sbOTJt4.png',
+                actions=[
+                    MessageTemplateAction(
+                        label='近期上映電影',
+                        text='近期上映電影'
+                    ),
+                    MessageTemplateAction(
+                        label='eyny',
+                        text='eyny'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+    if event.message.text == "看廢文":
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='你媽知道你在看廢文嗎',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/ocmxAdS.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='近期熱門廢文',
+                        text='近期熱門廢文'
+                    ),
+                    MessageTemplateAction(
+                        label='即時廢文',
+                        text='即時廢文'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+    if event.message.text == "正妹":
+        buttons_template = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='選擇服務',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/qKkE2bj.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='PTT 表特版 近期大於 10 推的文章',
+                        text='PTT 表特版 近期大於 10 推的文章'
+                    ),
+                    MessageTemplateAction(
+                        label='隨便來張正妹圖片',
+                        text='隨便來張正妹圖片'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+
+    buttons_template = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+            title='選擇服務',
+            text='請選擇',
+            thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+            actions=[
+                MessageTemplateAction(
+                    label='開始玩',
+                    text='開始玩'
+                ),
+                URITemplateAction(
+                    label='影片介紹 阿肥bot',
+                    uri='https://youtu.be/1IxtWgWxtlE'
+                ),
+                URITemplateAction(
+                    label='如何建立自己的 Line Bot',
+                    uri='https://github.com/twtrubiks/line-bot-tutorial'
+                ),
+                URITemplateAction(
+                    label='聯絡作者',
+                    uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, buttons_template)
 
 
 if __name__ == '__main__':
