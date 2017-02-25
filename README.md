@@ -40,7 +40,7 @@
 
 
 
-### V1  commit ba855d6307c50cc478db3d7ac689bf0c96122a0f
+### V1  commit [ba855d6307c50cc478db3d7ac689bf0c96122a0f](https://github.com/twtrubiks/line-bot-tutorial/tree/ba855d6307c50cc478db3d7ac689bf0c96122a0f)
 
 成功加入後，我的 <b>阿肥bot</b> 會傳訊息給你，並且告訴你我提供的服務
 
