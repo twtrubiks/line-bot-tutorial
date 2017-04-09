@@ -208,6 +208,8 @@ https://python-ine-bot.herokuapp.com/callback
 
 ![alt tag](http://i.imgur.com/wb0Qw5W.jpg)
 
+關於上述這個問題，可以到 [issues 2](https://github.com/twtrubiks/line-bot-tutorial/issues/2) 觀看
+
 基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
 
 只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
