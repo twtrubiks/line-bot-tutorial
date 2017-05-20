@@ -18,3 +18,4 @@ Werkzeug==0.11.15
 gunicorn==19.6.0
 beautifulsoup4==4.5.3
 line-bot-sdk==1.1.0
+imgurpython==1.1.7
