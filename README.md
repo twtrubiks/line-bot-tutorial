@@ -6,6 +6,26 @@
 
 * [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)   
 
+
+## update  2017/5/20
+
+增加 imgur 官方 api  [imgurpython](https://github.com/Imgur/imgurpython) ,
+
+從自己的相簿隨機回傳一張正妹照片，
+
+請到下方獲取自己的 CLIENT_ID ,  CLIENT_SECRET  , 以及自己相簿的 album_id
+
+![alt tag](http://i.imgur.com/nQNQVD7.jpg)
+
+並將自己的資料輸入在下方程式碼
+```
+client_id = 'YOUR_IMGUR_CLIENT_ID'
+client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
+album_id = 'YOUR_IMGUR_ALBUM_ID'
+```
+
+更多詳細的介紹可參考 [imgurpython](https://github.com/Imgur/imgurpython)
+
 ## 執行畫面
 
 請先加入好友
@@ -22,7 +42,7 @@
 
 ![alt tag](http://i.imgur.com/9LOlGHh.jpg)
 
-### v2 2017/2/25 
+### v2 2017/2/25
 
 ![alt tag](http://i.imgur.com/M30GJOU.jpg)
 
@@ -168,11 +188,11 @@ line bot 的 大頭貼 以及 名稱 設定
 ```
 line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 handler = WebhookHandler('YOUR_CHANNEL_SECRET')
-``` 
+```
 
 更多資訊可參考 [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
 
-接下來因為 Line Bot 需要 SSL憑證 ( https )，所以我直接使用 [Heroku](https://dashboard.heroku.com/) 
+接下來因為 Line Bot 需要 SSL憑證 ( https )，所以我直接使用 [Heroku](https://dashboard.heroku.com/)
 
 如果不知道什麼是 [Heroku](https://dashboard.heroku.com/)  以及它的使用方法
 
@@ -188,13 +208,13 @@ handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 ```
 https://{你的網址}/callback
-``` 
+```
 
 舉例，我的網址就是
 
 ```
 https://python-ine-bot.herokuapp.com/callback
-``` 
+```
 
 ![alt tag](http://i.imgur.com/5ckn24T.jpg)
 
@@ -207,6 +227,8 @@ https://python-ine-bot.herokuapp.com/callback
 不過我使用 [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)當我按下 VERIFY，卻出現錯誤，不過是可以正常運作，所以暫時先不管他。
 
 ![alt tag](http://i.imgur.com/wb0Qw5W.jpg)
+
+關於上述這個問題，可以到 [issues 2](https://github.com/twtrubiks/line-bot-tutorial/issues/2) 觀看
 
 基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
 
@@ -222,7 +244,7 @@ image_message = ImageSendMessage(
             original_content_url="https://example.com.img1.jpg",
             preview_image_url="https://example.com.img1.jpg"
         )
-``` 
+```
 
 
 
@@ -230,9 +252,10 @@ image_message = ImageSendMessage(
 ## 執行環境
 * Python 3.4.3
 
-## Reference 
-* [line messaging-api](https://devdocs.line.me/en/#messaging-api) 
+## Reference
+* [line messaging-api](https://devdocs.line.me/en/#messaging-api)
 * [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
+* [imgurpython](https://github.com/Imgur/imgurpython)
 
 
 ## License
