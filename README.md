@@ -1,11 +1,11 @@
 # line-bot-Tutorial
- 教你建立自己的 line-bot 使用 python flask 📝   
+
+ 教你建立自己的 line-bot 使用 python flask 📝
  line-bot-tutorial use python flask
 
-* [Youtube Demo Tutorial V1 ](https://youtu.be/EToFs-ysXKw)   
+* [Youtube Demo Tutorial V1](https://youtu.be/EToFs-ysXKw)
 
-* [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)   
-
+* [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)
 
 ## update  2017/5/20
 
@@ -18,7 +18,8 @@
 ![alt tag](http://i.imgur.com/nQNQVD7.jpg)
 
 並將自己的資料輸入在下方程式碼
-```
+
+```python
 client_id = 'YOUR_IMGUR_CLIENT_ID'
 client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
 album_id = 'YOUR_IMGUR_ALBUM_ID'
@@ -38,7 +39,7 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/oAgR5nr.jpg)
 
-認證記得請選 <b>同意</b>
+認證記得請選 **同意**
 
 ![alt tag](http://i.imgur.com/9LOlGHh.jpg)
 
@@ -58,15 +59,13 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/5T32UW3.jpg)
 
-
-
 ### V1  commit [ba855d6307c50cc478db3d7ac689bf0c96122a0f](https://github.com/twtrubiks/line-bot-tutorial/tree/ba855d6307c50cc478db3d7ac689bf0c96122a0f)
 
-成功加入後，我的 <b>阿肥bot</b> 會傳訊息給你，並且告訴你我提供的服務
+成功加入後，我的 **阿肥bot** 會傳訊息給你，並且告訴你我提供的服務
 
 ![alt tag](http://i.imgur.com/n9Gj09Y.jpg)
 
-之後你就可以依照你想要看的東西輸入指令 (目前是有分大小寫，所以請輸入 <b>小寫</b> )
+之後你就可以依照你想要看的東西輸入指令 (目前是有分大小寫，所以請輸入 **小寫** )
 
 #### "eyny" : eyny 電影版 Mega 連結的網址。
 
@@ -96,16 +95,13 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/NhaGdlW.jpg)
 
-如果輸入不存在的指令，<b>阿肥bot</b> 會告知你我目前能做的指令有哪些
+如果輸入不存在的指令，**阿肥bot** 會告知你我目前能做的指令有哪些
 
 ![alt tag](http://i.imgur.com/dabsGfK.jpg)
 
-
-希望這個 <b>阿肥bot</b> 能幫助大家，程式碼基本上就是很簡單的爬蟲。
+希望這個 **阿肥bot** 能幫助大家，程式碼基本上就是很簡單的爬蟲。
 
 如果需要其他的功能，可以給小弟一點建議，我會盡量完成他。
-
-
 
 ## 教學
 
@@ -115,9 +111,9 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/KIzExmQ.jpg)
 
-接下來你會看到 <b>開始使用Messaging API</b> 以及 <b>開始使用Developer Trial</b>
+接下來你會看到 **開始使用Messaging API** 以及 **開始使用Developer Trial**
 
-在這裡我們選 <b>開始使用Messaging API</b>
+在這裡我們選 **開始使用Messaging API**
 
 ![alt tag](http://i.imgur.com/graLPrj.jpg)
 
@@ -157,11 +153,11 @@ line bot 的 大頭貼 以及 名稱 設定
 
 ![alt tag](http://i.imgur.com/pKWBvsj.jpg)
 
-這些請注意，  選擇 <b>允許</b> ，然後記得 <b>儲存</b>
+這些請注意，  選擇 **允許** ，然後記得 **儲存**
 
 ![alt tag](http://i.imgur.com/Ofm9SeJ.jpg)
 
-點選 <b>Line Developers</b>
+點選 **Line Developers**
 
 ![alt tag](http://i.imgur.com/cW9713h.jpg)
 
@@ -171,21 +167,21 @@ line bot 的 大頭貼 以及 名稱 設定
 
 * Channel Access Token
 
-<b>Channel Secret</b>
+***Channel Secret***
 
 ![alt tag](http://i.imgur.com/jpIEMh4.jpg)
 
-<b>Channel Access Token</b>
+***Channel Access Token***
 
-如果你看到的是空的，請點選 <b>ISSUE</b> 就會顯示了
+如果你看到的是空的，請點選 **ISSUE** 就會顯示了
 
 ![alt tag](http://i.imgur.com/PcCEL4P.jpg)
 
-請將你的 <b>Channel Secret</b> 以及 <b>Channel Access Token </b>
+請將你的 **Channel Secret** 以及 **Channel Access Token **
 
 貼到下方的程式碼
 
-```
+```pyhton
 line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 ```
@@ -206,13 +202,13 @@ handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 接著我們要加入 Webhook URL ，請點選 EDIT ，並且加入你自己的網址，網址格式
 
-```
+```python
 https://{你的網址}/callback
 ```
 
 舉例，我的網址就是
 
-```
+```python
 https://python-ine-bot.herokuapp.com/callback
 ```
 
@@ -235,28 +231,28 @@ https://python-ine-bot.herokuapp.com/callback
 只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
 
 ## 其他補充
-只要有使用到網址，請記得一定都要用 <b> https </b>
+
+只要有使用到網址，請記得一定都要用 **https**
 
 舉例
 
-```
+```pyhton
 image_message = ImageSendMessage(
             original_content_url="https://example.com.img1.jpg",
             preview_image_url="https://example.com.img1.jpg"
         )
 ```
 
-
-
-
 ## 執行環境
+
 * Python 3.4.3
 
 ## Reference
+
 * [line messaging-api](https://devdocs.line.me/en/#messaging-api)
 * [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
 * [imgurpython](https://github.com/Imgur/imgurpython)
 
-
 ## License
+
 MIT license
