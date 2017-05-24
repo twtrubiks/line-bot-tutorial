@@ -177,7 +177,7 @@ line bot 的 大頭貼 以及 名稱 設定
 
 ![alt tag](http://i.imgur.com/PcCEL4P.jpg)
 
-請將你的 **Channel Secret** 以及 **Channel Access Token **
+請將你的 **Channel Secret** 以及 **Channel Access Token**
 
 貼到下方的程式碼
 
