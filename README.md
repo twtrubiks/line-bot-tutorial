@@ -225,7 +225,8 @@ https://python-ine-bot.herokuapp.com/callback
 
 ![alt tag](http://i.imgur.com/wb0Qw5W.jpg)
 
-關於上述這個問題，可以到 [issues 2](https://github.com/twtrubiks/line-bot-tutorial/issues/2) 觀看
+關於上述這個問題，可以到 [issues 2](https://github.com/twtrubiks/line-bot-tutorial/issues/2)
+以及 [issues 3](https://github.com/twtrubiks/line-bot-tutorial/issues/3) 觀看說明。( 感謝熱心的網友 )
 
 基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
 
