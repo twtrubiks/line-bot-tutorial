@@ -8,26 +8,6 @@
 
 * [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)
 
-## update  2017/5/20
-
-增加 imgur 官方 api  [imgurpython](https://github.com/Imgur/imgurpython) ,
-
-從自己的相簿隨機回傳一張正妹照片，
-
-請到下方獲取自己的 CLIENT_ID ,  CLIENT_SECRET  , 以及自己相簿的 album_id
-
-![alt tag](http://i.imgur.com/nQNQVD7.jpg)
-
-並將自己的資料輸入在下方程式碼
-
-```python
-client_id = 'YOUR_IMGUR_CLIENT_ID'
-client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
-album_id = 'YOUR_IMGUR_ALBUM_ID'
-```
-
-更多詳細的介紹可參考 [imgurpython](https://github.com/Imgur/imgurpython)
-
 ## 執行畫面
 
 請先加入好友
@@ -54,11 +34,11 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/M30GJOU.jpg)
 
-開始玩
+***開始玩***
 
 ![alt tag](http://i.imgur.com/PCcnc5R.jpg)
 
-新聞
+***新聞***
 
 ![alt tag](http://i.imgur.com/mc0R0xL.jpg)
 
@@ -82,7 +62,7 @@ PanX泛科技 最新文章
 
 ![alt tag](http://i.imgur.com/07N2r9N.png)
 
-電影
+***電影***
 
 ![alt tag](http://i.imgur.com/5T32UW3.jpg)
 
@@ -100,7 +80,7 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 
 ![alt tag](http://i.imgur.com/rIGbmWA.jpg)
 
-看廢文
+***看廢文***
 
 ![alt tag](http://i.imgur.com/GJI1BwG.jpg)
 
@@ -118,7 +98,7 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 
 ![alt tag](http://i.imgur.com/B2YhFoS.png)
 
-正妹
+***正妹***
 
 ![alt tag](http://i.imgur.com/r6x8GzZ.jpg)
 
@@ -271,6 +251,26 @@ https://python-ine-bot.herokuapp.com/callback
 基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
 
 只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
+
+## 使用 imgur 官方 api
+
+透過 imgur 官方 api  [imgurpython](https://github.com/Imgur/imgurpython) ,
+
+從自己的相簿隨機回傳一張正妹照片，
+
+請到下方獲取自己的 CLIENT_ID ,  CLIENT_SECRET  , 以及自己相簿的 album_id
+
+![alt tag](http://i.imgur.com/nQNQVD7.jpg)
+
+並將自己的資料輸入在下方程式碼
+
+```python
+client_id = 'YOUR_IMGUR_CLIENT_ID'
+client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
+album_id = 'YOUR_IMGUR_ALBUM_ID'
+```
+
+更多詳細的介紹可參考 [imgurpython](https://github.com/Imgur/imgurpython)
 
 ## 其他補充
 
