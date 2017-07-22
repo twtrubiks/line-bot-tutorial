@@ -41,7 +41,10 @@ def callback():
 
 
 def pattern_mega(text):
-    patterns = ['mega', 'mg', 'mu', 'ＭＥＧＡ', 'ＭＥ', 'ＭＵ', 'ｍｅ', 'ｍｕ', 'ｍｅｇａ']
+    patterns = [
+        'mega', 'mg', 'mu', 'ＭＥＧＡ', 'ＭＥ', 'ＭＵ',
+        'ｍｅ', 'ｍｕ', 'ｍｅｇａ', 'GD', 'MG', 'google',
+    ]
     for pattern in patterns:
         if re.search(pattern, text, re.IGNORECASE):
             return True
@@ -57,7 +60,7 @@ def eyny_movie():
     for titleURL in soup.select('.bm_c tbody .xst'):
         if pattern_mega(titleURL.text):
             title = titleURL.text
-            if '10990869-1-3' in titleURL['href']:
+            if '11379780-1-3' in titleURL['href']:
                 continue
             link = 'http://www.eyny.com/' + titleURL['href']
             data = '{}\n{}\n\n'.format(title, link)
