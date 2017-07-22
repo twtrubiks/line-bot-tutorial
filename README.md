@@ -44,63 +44,103 @@ album_id = 'YOUR_IMGUR_ALBUM_ID'
 
 ![alt tag](http://i.imgur.com/9LOlGHh.jpg)
 
-### v2 2017/2/25
+### 功能
+
+***精選功能***
+
+![alt tag](http://i.imgur.com/IB3hBl8.jpg)
+
+輸入任何文字即可開始玩
 
 ![alt tag](http://i.imgur.com/M30GJOU.jpg)
 
+開始玩
+
 ![alt tag](http://i.imgur.com/PCcnc5R.jpg)
 
-![alt tag](http://i.imgur.com/3fajqDK.jpg)
-
-![alt tag](http://i.imgur.com/SXwT0bl.jpg)
+新聞
 
 ![alt tag](http://i.imgur.com/mc0R0xL.jpg)
 
-![alt tag](http://i.imgur.com/GJI1BwG.jpg)
+#### 蘋果即時新聞
+
+ apple news 即時新聞 ( 來源 [http://www.appledaily.com.tw/realtimenews/section/new/](http://www.appledaily.com.tw/realtimenews/section/new/) )
+
+![alt tag](http://i.imgur.com/OpJj9DE.png)
+
+#### 科技新報
+
+科技新報 ( Tech News ) 最新文章
+( 來源 [https://technews.tw/](https://technews.tw/) )
+
+![alt tag](http://i.imgur.com/H9YsDzP.png)
+
+#### PanX泛科技
+
+PanX泛科技 最新文章
+( 來源 [https://panx.asia/](https://panx.asia/) )
+
+![alt tag](http://i.imgur.com/07N2r9N.png)
+
+電影
 
 ![alt tag](http://i.imgur.com/5T32UW3.jpg)
 
-### V1  commit [ba855d6307c50cc478db3d7ac689bf0c96122a0f](https://github.com/twtrubiks/line-bot-tutorial/tree/ba855d6307c50cc478db3d7ac689bf0c96122a0f)
+#### 近期上映電影
 
-成功加入後，我的 **阿肥bot** 會傳訊息給你，並且告訴你我提供的服務
+近期上映的電影 ( 開眼電影網 )
+( 來源 [http://www.atmovies.com.tw/movie/next/0/](http://www.atmovies.com.tw/movie/next/0/) )
 
-![alt tag](http://i.imgur.com/n9Gj09Y.jpg)
+![alt tag](http://i.imgur.com/hI3itad.png)
 
-之後你就可以依照你想要看的東西輸入指令 (目前是有分大小寫，所以請輸入 **小寫** )
+#### eyny
 
-#### "eyny" : eyny 電影版 Mega 連結的網址。
+eyny 電影版包含 Mega 以及 Google 標題的文章
+( 來源 [http://www.eyny.com/forum-205-1.html](http://www.eyny.com/forum-205-1.html) )
 
 ![alt tag](http://i.imgur.com/rIGbmWA.jpg)
 
-#### "news" : apple news 即時新聞。
+看廢文
 
-![alt tag](http://i.imgur.com/JGnn2vG.jpg)
+![alt tag](http://i.imgur.com/GJI1BwG.jpg)
 
-#### "beauty" : ptt 表特版 近期大於 10 推的文章 。
+#### 近期熱門廢文
 
-![alt tag](http://i.imgur.com/mvxoq4M.jpg)
+( 來源 [http://disp.cc/b/PttHot](http://disp.cc/b/PttHot) )
 
-#### "ptthot" : ptt 近期熱門的文章。
+![alt tag](http://i.imgur.com/Qm28Rso.png)
 
-![alt tag](http://i.imgur.com/doMVR3y.jpg)
+#### 即時廢文
 
-#### "movie" : 近期上映的電影 ( 開眼電影網 )。
+即時八卦版廢文
 
-![alt tag](http://i.imgur.com/EGbEXJ7.jpg)
+( 來源 [https://www.ptt.cc/bbs/Gossiping/index.html](https://www.ptt.cc/bbs/Gossiping/index.html) )
 
-#### "technews" : 科技新聞。
+![alt tag](http://i.imgur.com/B2YhFoS.png)
 
-![alt tag](http://i.imgur.com/rHdq69F.jpg)
+正妹
 
-#### "panx" : 科技新聞 ( 泛科技 ) 。
+![alt tag](http://i.imgur.com/r6x8GzZ.jpg)
 
-![alt tag](http://i.imgur.com/NhaGdlW.jpg)
+#### PTT 表特版 近期大於 10 推的文章
 
-如果輸入不存在的指令，**阿肥bot** 會告知你我目前能做的指令有哪些
+( 來源 [https://www.ptt.cc/bbs/Beauty/index.html](https://www.ptt.cc/bbs/Beauty/index.html) )
 
-![alt tag](http://i.imgur.com/dabsGfK.jpg)
+![alt tag](http://i.imgur.com/N00kvip.png)
 
-希望這個 **阿肥bot** 能幫助大家，程式碼基本上就是很簡單的爬蟲。
+#### 來張 imgur 正妹圖片
+
+( 來源 ，自己的  imgur ，透過官方 api  [imgurpython](https://github.com/Imgur/imgurpython) 回傳圖片  )
+
+![alt tag](http://i.imgur.com/dzTvo4z.png)
+
+#### 隨便來張正妹圖片
+
+( 來源 ，爬蟲 [auto_crawler_ptt_beauty_image](https://github.com/twtrubiks/auto_crawler_ptt_beauty_image)  ，從資料庫取出圖片)
+
+![alt tag](http://i.imgur.com/emQRbRb.png)
+
+希望這個 **阿肥bot** 能帶給大家歡樂，程式碼很多基本上就是簡單的爬蟲。
 
 如果需要其他的功能，可以給小弟一點建議，我會盡量完成他。
 
@@ -244,6 +284,42 @@ image_message = ImageSendMessage(
             preview_image_url="https://example.com.img1.jpg"
         )
 ```
+
+## 設定選單
+
+有一些東西是必須到 line 的官網去設定的，像是下方的選單
+
+![alt tag](http://i.imgur.com/IB3hBl8.jpg)
+
+請到 [https://admin-official.line.me/](https://admin-official.line.me/) 選擇自己的 bot ，然後開始設定，
+
+建立圖片影音內容 -> 圖文訊息選單 ( 如下圖 )
+
+![alt tag](http://i.imgur.com/igKd6Og.png)
+
+顯示設定，請選擇 ***反映***，不然會沒有效果
+
+![alt tag](http://i.imgur.com/pEHSxUH.png)
+
+接著選擇樣式，
+
+記得，***選單內容設定*** 全部都要設定，不然會沒有效果
+
+![alt tag](http://i.imgur.com/u0bzYu7.png)
+
+最後，那個主要兩個字非常礙眼 ( 如下圖 )
+
+![alt tag](http://i.imgur.com/Lv3BMyz.jpg)
+
+我們可以從這裡把它關掉
+
+帳號設定 -> 基本設定
+
+![alt tag](http://i.imgur.com/bwjWijG.png)
+
+將 行動官網選單 設定為 隱藏 即可
+
+![alt tag](http://i.imgur.com/Q1qvjTT.png)
 
 ## 執行環境
 
