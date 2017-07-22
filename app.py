@@ -193,7 +193,7 @@ def ptt_beauty():
     soup = BeautifulSoup(res.text, 'html.parser')
     all_page_url = soup.select('.btn.wide')[1]['href']
     start_page = get_page_number(all_page_url)
-    page_term = 3  # crawler count
+    page_term = 2  # crawler count
     push_rate = 10  # 推文
     index_list = []
     article_list = []
@@ -363,7 +363,7 @@ def handle_message(event):
         return 0
     if event.message.text == "開始玩":
         buttons_template = TemplateSendMessage(
-            alt_text='Buttons template',
+            alt_text='開始玩 template',
             template=ButtonsTemplate(
                 title='選擇服務',
                 text='請選擇',
@@ -392,7 +392,7 @@ def handle_message(event):
         return 0
     if event.message.text == "新聞":
         buttons_template = TemplateSendMessage(
-            alt_text='Buttons template',
+            alt_text='新聞 template',
             template=ButtonsTemplate(
                 title='新聞類型',
                 text='請選擇',
@@ -417,7 +417,7 @@ def handle_message(event):
         return 0
     if event.message.text == "電影":
         buttons_template = TemplateSendMessage(
-            alt_text='Buttons template',
+            alt_text='電影 template',
             template=ButtonsTemplate(
                 title='服務類型',
                 text='請選擇',
@@ -438,7 +438,7 @@ def handle_message(event):
         return 0
     if event.message.text == "看廢文":
         buttons_template = TemplateSendMessage(
-            alt_text='Buttons template',
+            alt_text='看廢文 template',
             template=ButtonsTemplate(
                 title='你媽知道你在看廢文嗎',
                 text='請選擇',
@@ -459,7 +459,7 @@ def handle_message(event):
         return 0
     if event.message.text == "正妹":
         buttons_template = TemplateSendMessage(
-            alt_text='Buttons template',
+            alt_text='正妹 template',
             template=ButtonsTemplate(
                 title='選擇服務',
                 text='請選擇',
@@ -484,7 +484,7 @@ def handle_message(event):
         return 0
 
     buttons_template = TemplateSendMessage(
-        alt_text='Buttons template',
+        alt_text='目錄 template',
         template=ButtonsTemplate(
             title='選擇服務',
             text='請選擇',
