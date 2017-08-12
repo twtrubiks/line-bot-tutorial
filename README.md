@@ -321,9 +321,13 @@ image_message = ImageSendMessage(
 
 ![alt tag](http://i.imgur.com/Q1qvjTT.png)
 
+## Heroku 注意事項
+
+有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.2
+
 ## 執行環境
 
-* Python 3.4.3
+* Python 3.6.2
 
 ## Reference
 
