@@ -313,7 +313,7 @@ def handle_message(event):
         client = ImgurClient(client_id, client_secret)
         images = client.get_album_images(album_id)
         index = random.randint(0, len(images) - 1)
-        url = images[index].link.replace('http', 'https')
+        url = images[index].link
         image_message = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
