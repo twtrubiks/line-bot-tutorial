@@ -200,11 +200,12 @@ line bot 的 大頭貼 以及 名稱 設定
 
 請將你的 **Channel Secret** 以及 **Channel Access Token**
 
-貼到下方的程式碼
+貼到 [config.ini](https://github.com/twtrubiks/line-bot-tutorial/blob/master/config.ini) 底下 ( 如不了解 .ini 的使用方法，可參考 [configparser_tutorial](https://github.com/twtrubiks/python-notes/tree/master/configparser_tutorial) )
 
-```pyhton
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+```ini
+[line_bot]
+Channel_Access_Token = YOUR_CHANNEL_SECRET
+Channel_Secret = YOUR_CHANNEL_SECRET
 ```
 
 更多資訊可參考 [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)

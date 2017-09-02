@@ -1,6 +1,7 @@
 import requests
 import re
 import random
+import configparser
 from bs4 import BeautifulSoup
 from flask import Flask, request, abort
 from imgurpython import ImgurClient
@@ -14,12 +15,15 @@ from linebot.exceptions import (
 from linebot.models import *
 
 app = Flask(__name__)
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
-client_id = 'YOUR_IMGUR_CLIENT_ID'
-client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
-album_id = 'YOUR_IMGUR_ALBUM_ID'
-API_Get_Image ='API_Get_Image'
+config = configparser.ConfigParser()
+config.read("config.ini")
+
+line_bot_api = LineBotApi(config['line_bot']['Channel_Access_Token'])
+handler = WebhookHandler(config['line_bot']['Channel_Secret'])
+client_id = config['imgur_api']['Client_ID']
+client_secret = config['imgur_api']['Client_Secret']
+album_id = config['imgur_api']['Album_ID']
+API_Get_Image = config['other_api']['API_Get_Image']
 
 
 @app.route("/callback", methods=['POST'])
