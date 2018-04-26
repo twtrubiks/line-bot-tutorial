@@ -17,5 +17,5 @@ webassets==0.12.0
 Werkzeug==0.11.15     
 gunicorn==19.6.0
 beautifulsoup4==4.5.3
-line-bot-sdk==1.3.0
+line-bot-sdk==1.5.0
 imgurpython==1.1.7
