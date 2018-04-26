@@ -64,7 +64,7 @@ PanX泛科技 最新文章
 
 ***電影***
 
-![alt tag](http://i.imgur.com/5T32UW3.jpg)
+![alt tag](https://i.imgur.com/kbqWchl.jpg)
 
 #### 近期上映電影
 
@@ -79,6 +79,12 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 ( 來源 [http://www.eyny.com/forum-205-1.html](http://www.eyny.com/forum-205-1.html) )
 
 ![alt tag](http://i.imgur.com/rIGbmWA.jpg)
+
+#### 觸電網-youtube
+
+觸電網 ( youtube 預告 )
+
+![alt tag](https://i.imgur.com/EjTfNTO.jpg)
 
 ***看廢文***
 
@@ -119,6 +125,12 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 ( 來源 ，爬蟲 [auto_crawler_ptt_beauty_image](https://github.com/twtrubiks/auto_crawler_ptt_beauty_image)  ，從資料庫取出圖片)
 
 ![alt tag](http://i.imgur.com/emQRbRb.png)
+
+***貼圖***
+
+如果傳任意貼圖，則會回傳任意有效貼圖 ( 目前我只有把官方 package_id 為 1 的 sticker_id 放在程式碼裡 )，
+
+相關的 sticker_id 以及 package_id 可參考官網的 [sticker_list.pdf](https://developers.line.me/media/messaging-api/sticker_list.pdf)。
 
 希望這個 **阿肥bot** 能帶給大家歡樂，程式碼很多基本上就是簡單的爬蟲。
 
@@ -324,11 +336,11 @@ image_message = ImageSendMessage(
 
 ## Heroku 注意事項
 
-有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.2
+有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.4
 
 ## 執行環境
 
-* Python 3.6.2
+* Python 3.6.4
 
 ## Reference
 
