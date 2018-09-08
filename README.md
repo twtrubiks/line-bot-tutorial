@@ -64,7 +64,7 @@ PanX泛科技 最新文章
 
 ***電影***
 
-![alt tag](https://i.imgur.com/kbqWchl.jpg)
+![alt tag](https://i.imgur.com/DQRUlV8.jpg)
 
 #### 近期上映電影
 
@@ -84,7 +84,7 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 
 觸電網 ( youtube 預告 )
 
-![alt tag](https://i.imgur.com/EjTfNTO.jpg)
+![alt tag](https://i.imgur.com/FPw95Kf.jpg)
 
 ***看廢文***
 
@@ -132,9 +132,27 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 
 相關的 sticker_id 以及 package_id 可參考官網的 [sticker_list.pdf](https://developers.line.me/media/messaging-api/sticker_list.pdf)。
 
+![alt tag](https://i.imgur.com/d6yaNBW.jpg)
+
 希望這個 **阿肥bot** 能帶給大家歡樂，程式碼很多基本上就是簡單的爬蟲。
 
 如果需要其他的功能，可以給小弟一點建議，我會盡量完成他。
+
+***油價查詢***
+
+![alt tag](https://i.imgur.com/pgwYGQe.png)
+
+***分享 bot***
+
+如果你想要分享你的 bot 給別人，可以使用 `https://line.me/R/nv/recommendOA/{LINE_id}` ，
+
+舉個例子，我的 bot 的 Line ID 為 `@vbi2716y`，所以我就可以寫成如下，
+
+`https://line.me/R/nv/recommendOA/@vbi2716y`
+
+![alt tag](https://i.imgur.com/jlOJ71S.png)
+
+更多說明可參考 [sharing-your-bot-account](https://developers.line.me/ja/docs/messaging-api/using-line-url-scheme/#sharing-your-bot-account)。
 
 ## 教學
 
@@ -336,11 +354,26 @@ image_message = ImageSendMessage(
 
 ## Heroku 注意事項
 
-有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.4
+有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.6。
+
+( 這個只要依照提示更新就行了 )
+
+如果遇到 Upgrading to the Latest Stack，只需要到 Heroku 上修正後，重新佈署即可，可參考
+
+[Upgrading to the Latest Stack](https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack) 以及 [Stacks](https://devcenter.heroku.com/articles/stack)。
+
+因為 gunicorn 的更新，現在需要將 [Procfile](https://github.com/twtrubiks/line-bot-tutorial/blob/master/Procfile) 多加上 `--preload`，也就是變成
+
+```Procfile
+web gunicorn app:app --preload
+```
+
+詳細可參考
+[Advanced configuration](https://devcenter.heroku.com/articles/python-gunicorn#advanced-configuration)。
 
 ## 執行環境
 
-* Python 3.6.4
+* Python 3.6.6
 
 ## Reference
 

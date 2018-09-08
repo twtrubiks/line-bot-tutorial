@@ -287,11 +287,23 @@ def panx():
     return content
 
 
+def oil_price():
+    target_url = 'https://gas.goodlife.tw/'
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    title = soup.select('#main')[0].text.replace('\n', '').split('(')[0]
+    gas_price = soup.select('#gas-price')[0].text.replace('\n\n\n', '').replace(' ', '')
+    cpc = soup.select('#cpc')[0].text.replace(' ', '')
+    content = '{}\n{}{}'.format(title, gas_price, cpc)
+    return content
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
-    if event.message.text == "eyny":
+    if event.message.text.lower() == "eyny":
         content = eyny_movie()
         line_bot_api.reply_message(
             event.reply_token,
@@ -498,34 +510,100 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
+    if event.message.text == "imgur bot":
+        carousel_template_message = TemplateSendMessage(
+            alt_text='ImageCarousel template',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/g8zAYMq.jpg',
+                        action=URIAction(
+                            label='加我好友試玩',
+                            uri='https://line.me/R/ti/p/%40gmy1077x'
+                        ),
+                    ),
+                ]
+            )
+        )
+        line_bot_api.reply_message(
+            event.reply_token,
+            carousel_template_message)
+        return 0
+    if event.message.text == "油價查詢":
+        content = oil_price()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
 
-    buttons_template = TemplateSendMessage(
+    carousel_template_message = TemplateSendMessage(
         alt_text='目錄 template',
-        template=ButtonsTemplate(
-            title='選擇服務',
-            text='請選擇',
-            thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
-            actions=[
-                MessageTemplateAction(
-                    label='開始玩',
-                    text='開始玩'
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+                    title='選擇服務',
+                    text='請選擇',
+                    actions=[
+                        MessageAction(
+                            label='開始玩',
+                            text='開始玩'
+                        ),
+                        URIAction(
+                            label='影片介紹 阿肥bot',
+                            uri='https://youtu.be/1IxtWgWxtlE'
+                        ),
+                        URIAction(
+                            label='如何建立自己的 Line Bot',
+                            uri='https://github.com/twtrubiks/line-bot-tutorial'
+                        )
+                    ]
                 ),
-                URITemplateAction(
-                    label='影片介紹 阿肥bot',
-                    uri='https://youtu.be/1IxtWgWxtlE'
+                CarouselColumn(
+                    thumbnail_image_url='https://i.imgur.com/DrsmtKS.jpg',
+                    title='選擇服務',
+                    text='請選擇',
+                    actions=[
+                        MessageAction(
+                            label='other bot',
+                            text='imgur bot'
+                        ),
+                        MessageAction(
+                            label='油價查詢',
+                            text='油價查詢'
+                        ),
+                        URIAction(
+                            label='聯絡作者',
+                            uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                        )
+                    ]
                 ),
-                URITemplateAction(
-                    label='如何建立自己的 Line Bot',
-                    uri='https://github.com/twtrubiks/line-bot-tutorial'
-                ),
-                URITemplateAction(
-                    label='聯絡作者',
-                    uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                CarouselColumn(
+                    thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
+                    title='選擇服務',
+                    text='請選擇',
+                    actions=[
+                        URIAction(
+                            label='分享 bot',
+                            uri='https://line.me/R/nv/recommendOA/@vbi2716y'
+                        ),
+                        URIAction(
+                            label='PTT正妹網',
+                            uri='https://ptt-beauty-infinite-scroll.herokuapp.com/'
+                        ),
+                        URIAction(
+                            label='youtube 程式教學分享頻道',
+                            uri='https://www.youtube.com/channel/UCPhn2rCqhu0HdktsFjixahA'
+                        )
+                    ]
                 )
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token, buttons_template)
+
+    line_bot_api.reply_message(event.reply_token, carousel_template_message)
+
+
 
 
 @handler.add(MessageEvent, message=StickerMessage)
