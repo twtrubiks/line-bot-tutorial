@@ -8,6 +8,8 @@
 
 * [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)
 
+**oop 版本可參考 [line-bot refactor use oop (design pattern)](https://github.com/twtrubiks/line-bot-oop)，此版本為 functional programming。**
+
 ## 執行畫面
 
 請先加入好友
