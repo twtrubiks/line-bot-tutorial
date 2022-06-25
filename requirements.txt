@@ -1,5 +1,5 @@
-Flask==1.0.2
-gunicorn==19.9.0
-beautifulsoup4==4.6.3
-line-bot-sdk==1.8.0
+Flask==2.1.2
+gunicorn==20.1.0
+beautifulsoup4==4.11.1
+line-bot-sdk==2.3.0
 imgurpython==1.1.7

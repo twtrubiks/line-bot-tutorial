@@ -297,7 +297,7 @@ https://python-ine-bot.herokuapp.com/callback
 
 並將自己的資料輸入在下方程式碼
 
-```python
+```python
 client_id = 'YOUR_IMGUR_CLIENT_ID'
 client_secret = 'YOUR_IMGUR__CLIENT_SECRET'
 album_id = 'YOUR_IMGUR_ALBUM_ID'
@@ -356,13 +356,19 @@ image_message = ImageSendMessage(
 
 ## Heroku 注意事項
 
-有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.6.6。
+有些人可能會遇到佈署失敗的問題，可以試著將 [runtime.txt](https://github.com/twtrubiks/line-bot-tutorial/blob/master/runtime.txt) 修改為 3.9.13
 
 ( 這個只要依照提示更新就行了 )
 
 如果遇到 Upgrading to the Latest Stack，只需要到 Heroku 上修正後，重新佈署即可，可參考
 
-[Upgrading to the Latest Stack](https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack) 以及 [Stacks](https://devcenter.heroku.com/articles/stack)。
+[Upgrading to the Latest Stack](https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack) 以及 [Stacks](https://devcenter.heroku.com/articles/stack),
+
+更新 stack 指令
+
+`heroku stack:set heroku-22 -a <app name>`
+
+之後再 commit push 一次就會自動 migrate 到新的 stack.
 
 因為 gunicorn 的更新，現在需要將 [Procfile](https://github.com/twtrubiks/line-bot-tutorial/blob/master/Procfile) 多加上 `--preload`，也就是變成
 
@@ -375,7 +381,7 @@ web gunicorn app:app --preload
 
 ## 執行環境
 
-* Python 3.6.6
+* Python 3.9
 
 ## Reference
 
