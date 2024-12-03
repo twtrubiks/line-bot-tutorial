@@ -381,7 +381,7 @@ web gunicorn app:app --preload
 
 ## 執行環境
 
-* Python 3.9
+* Python 3.12
 
 ## Reference
 
