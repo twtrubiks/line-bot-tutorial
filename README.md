@@ -10,6 +10,33 @@
 
 **oop 版本可參考 [line-bot refactor use oop (design pattern)](https://github.com/twtrubiks/line-bot-oop)，此版本為 functional programming。**
 
+## 挑戰點
+
+使用 AI 改善了整個架構, 使用 functional programming,
+
+可能比較複雜一點, 如果真的看不懂可以回上一板 [c382912](https://github.com/twtrubiks/line-bot-tutorial/tree/c3829129cb764697c792c44758be4536e0531d0c) 比較簡單.
+
+* 函數式程式設計概念
+  * Result 類型和 Monad 概念
+  * 函數組合 (compose/pipe)
+  * 柯里化 (curry)
+  * 高階函數
+
+* 複雜的類型系統
+  * 大量使用 Generic 和 TypeVar
+  * 複雜的類型註解
+  * 函數類型定義
+
+* 進階 Python 特性
+  * 裝飾器 (@safe_execute, @curry)
+  * 元程式設計
+  * 複雜的錯誤處理模式
+
+* 學習曲線陡峭
+  * 需要先理解函數式程式設計理論
+  * 與傳統物件導向思維差異很大
+  * 需要理解 Monad 和函數組合概念
+
 ## 執行畫面
 
 請先加入好友
@@ -46,7 +73,7 @@
 
 #### 蘋果即時新聞
 
- apple news 即時新聞 ( 來源 [http://www.appledaily.com.tw/realtimenews/section/new/](http://www.appledaily.com.tw/realtimenews/section/new/) )
+ apple news 即時新聞 ( 來源 [https://tw.nextapple.com/](https://tw.nextapple.com/) )
 
 ![alt tag](http://i.imgur.com/OpJj9DE.png)
 
@@ -57,12 +84,6 @@
 
 ![alt tag](http://i.imgur.com/H9YsDzP.png)
 
-#### PanX泛科技
-
-PanX泛科技 最新文章
-( 來源 [https://panx.asia/](https://panx.asia/) )
-
-![alt tag](http://i.imgur.com/07N2r9N.png)
 
 ***電影***
 
@@ -75,18 +96,7 @@ PanX泛科技 最新文章
 
 ![alt tag](http://i.imgur.com/hI3itad.png)
 
-#### eyny
 
-eyny 電影版包含 Mega 以及 Google 標題的文章
-( 來源 [http://www.eyny.com/forum-205-1.html](http://www.eyny.com/forum-205-1.html) )
-
-![alt tag](http://i.imgur.com/rIGbmWA.jpg)
-
-#### 觸電網-youtube
-
-觸電網 ( youtube 預告 )
-
-![alt tag](https://i.imgur.com/FPw95Kf.jpg)
 
 ***看廢文***
 
@@ -158,7 +168,7 @@ eyny 電影版包含 Mega 以及 Google 標題的文章
 
 ## 教學
 
-請先到 [https://business.line.me/zh-hant/](https://business.line.me/zh-hant/) 這裡登入自己
+請先到 [https://business.line.me/zh-hant/](https://developers.line.biz/zh-hant/) 這裡登入自己
 
 原本的 line 帳號，然後點選 Messaging API
 
@@ -387,11 +397,10 @@ web gunicorn app:app --preload
 
 * [line messaging-api](https://devdocs.line.me/en/#messaging-api)
 * [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
-* [imgurpython](https://github.com/Imgur/imgurpython)
 
 ## Donation
 
-文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
+文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡 :laughing:
 
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 

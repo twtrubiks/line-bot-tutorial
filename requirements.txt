@@ -1,5 +1,6 @@
-Flask==3.1.0
+Flask==3.1.1
 gunicorn==23.0.0
-beautifulsoup4==4.12.3
-line-bot-sdk==3.14.2
-ruff==0.8.1 # vscode 要安裝 ruff
+beautifulsoup4==4.13.4
+line-bot-sdk==3.17.1
+requests==2.32.3
+ruff==0.11.7
